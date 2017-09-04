@@ -1,3 +1,4 @@
+//Icke hab des script gesehen
 var sum = "";
 
 var col = "white";
