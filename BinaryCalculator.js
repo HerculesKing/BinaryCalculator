@@ -1,6 +1,5 @@
-//Icke hab des script gesehen
 var sum = "";
-
+var suk = "";
 var col = "white";
 
 var sup = "";
@@ -11,8 +10,18 @@ var check = "";
 
 var x = "1";
 
+var stl1 =  "green";
+var stl2 = "#4285F4";
+var stl3 = 500;
+var stl4 = "black";
+var stl5 = 0;
+var stl6 = 0;
+
 function OnStart()
 {
+app.SetOrientation( "Portrait" );
+
+
 	// erstes Layout
 	lay1 = app.CreateLayout( "Linear", "VCenter, FillXY" );
 	lay1.SetBackColor( col );
@@ -59,21 +68,25 @@ function OnStart()
 
   //Buttons für Seite 2
   //Button "Settings"
-  btnSrt1 = app.CreateButton( "Settings", 0.3, 0.07, "gray" );
+  btnSrt1 = app.CreateButton( "Settings", 0.3, 0.1, "custom" );
+  btnSrt1.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnSrt1.SetTextSize( 17 );
   btnSrt1.SetMargins( 0.01, 0.03, 0.01, 0 );
   btnSrt1.SetOnTouch( btnSrt1_OnTouch );
   // Button "Help"
-  btnSrt2 = app.CreateButton( "Help", 0.3, 0.07, "gray" );
+  btnSrt2 = app.CreateButton( "Help", 0.3, 0.1, "custom" );
+  btnSrt2.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnSrt2.SetTextSize( 17 );
   btnSrt2.SetMargins( 0.01, 0.03, 0.01, 0 );
   //btnSrt2.SetOnTouch( btnSrt2_OnTouch );
   // Button "Start"
-  btnSrt3 = app.CreateButton( "Start", 0.3, 0.07, "gray" );
+  btnSrt3 = app.CreateButton( "Start", 0.3, 0.1, "custom" );
+  btnSrt3.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnSrt3.SetTextSize( 17 );
   btnSrt3.SetOnTouch( btnSrt3_OnTouch );
   // Button um die App zu schließen "Exit"
-  btnExt = app.CreateButton( "Exit", 0.3, 0.07, "gray" );
+  btnExt = app.CreateButton( "Exit", 0.3, 0.1, "custom" );
+  btnExt.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnExt.SetTextSize( 17 );
   btnExt.SetMargins( 0.01, 0.03, 0.01, 0.01 );
   btnExt.SetOnTouch( btnExt_OnTouch );
@@ -106,7 +119,7 @@ function OnStart()
   btnVrl1.SetStyle( "GREEN", "#4285F4", 4 );
   
   btnVrl2 = app.CreateButton( "Dezimal -> Binary", 0.8, 0.1, "custom" );
-  //btnVrl2.SetOnTouch( btnVrl2_OnTouch );
+  btnVrl2.SetOnTouch( btnVrl2_OnTouch );
   btnVrl2.SetMargins( 0.01, 0.1, 0.01, 0 );
   btnVrl2.SetStyle( "GREEN", "#4285F4", 4 );
   
@@ -143,7 +156,8 @@ function OnStart()
   layCalc11.SetBackColor( col );
   layCalc1.AddChild( layCalc11 );
   // Seite Calculator Layout 1 Button "Back"
-  btnCalc1 = app.CreateButton( "Back", 0.19, 0.07, "gray" );
+  btnCalc1 = app.CreateButton( "Back", 0.19, 0.07, "custom" );
+  btnCalc1.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnCalc1.SetOnTouch( btnCalc1_OnTouch );
   btnCalc1.SetMargins( 0.01, 0.01, 0.1, 0.01 );
   layCalc11.AddChild( btnCalc1 );
@@ -170,24 +184,28 @@ function OnStart()
   txtCalc21.SetMargins( 0, 0.1, 0, 0.3 );
   
   // Button "C"
-  btnCalcC = app.CreateButton( "C", 0.2, 0.1, "gray" );
+  btnCalcC = app.CreateButton( "C", 0.2, 0.1, "custom" );
+  btnCalcC.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnCalcC.SetTextSize( 23 );
   btnCalcC.SetOnTouch( btnCalcC_OnTouch );
   
   // Button "0"
-  btnCalc21 = app.CreateButton( "0", 0.2, 0.1, "gray" );
+  btnCalc21 = app.CreateButton( "0", 0.2, 0.1, "custom" );
+  btnCalc21.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnCalc21.SetTextSize( 23 );
   btnCalc21.SetMargins( 0.07, 0, 0.01, 0 );
   btnCalc21.SetOnTouch( btnCalc21_OnTouch );
   
   // Button "1"
-  btnCalc22 = app.CreateButton( "1", 0.2, 0.1, "gray" );
+  btnCalc22 = app.CreateButton( "1", 0.2, 0.1, "custom" );
+  btnCalc22.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnCalc22.SetTextSize( 23 );
   btnCalc22.SetMargins( 0, 0, 0.07, 0 );
   btnCalc22.SetOnTouch( btnCalc22_OnTouch );
   
   // Button "="
-  btnCalc23 = app.CreateButton( "=", 0.2, 0.1, "gray" );
+  btnCalc23 = app.CreateButton( "=", 0.2, 0.1, "custom" );
+  btnCalc23.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnCalc23.SetTextSize( 23 );
   btnCalc23.SetOnTouch( btnCalc23_OnTouch );
   
@@ -214,6 +232,7 @@ function OnStart()
   layBin.AddChild( layBin1 );
   
   btnBinBck = app.CreateButton( "Back", 0.19, 0.07, "custom" );
+  btnBinBck.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnBinBck.SetOnTouch( btnBinBck_OnTouch );
   btnBinBck.SetMargins( -0.01, -0.005, 0, 0.01 );
   btnBinBck.SetStyle( "green", "#4285F4", 90000,"black", 0.7 , 0 );
@@ -247,13 +266,13 @@ function OnStart()
 	layBin.AddChild( layBin2 );
 	
 	btnBin0 = app.CreateButton( "											0", 0.8, 0.15, "Custom" );
-  btnBin0.SetStyle( "green", "#4285F4", 90000,"black", 0.7 , 0 );
+  btnBin0.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnBin0.SetTextColor( "black" );
   btnBin0.SetOnTouch( btnBin0_OnTouch );
   layBin2.AddChild( btnBin0 );
   
 	btnBin1 = app.CreateButton( "1											", 0.8, 0.15, "Custom" );
-  btnBin1.SetStyle( "green", "#4285F4", 90000,"black", 0.7 , 0 );
+  btnBin1.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnBin1.SetTextColor( "black" );
   btnBin1.SetOnTouch( btnBin1_OnTouch );
   layBin2.AddChild( btnBin1);
@@ -263,19 +282,69 @@ function OnStart()
   layBin.AddChild( layBin3 );
   
 	btnBinClc = app.CreateButton( "											=", 0.8, 0.15, "Custom" );
-  btnBinClc.SetStyle( "green", "#4285F4", 90000,"black", 0.7 , 0 );
+  btnBinClc.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnBinClc.SetTextColor( "black" );
   btnBinClc.SetOnTouch( btnBinClc_OnTouch );
   layBin3.AddChild( btnBinClc);
   
   btnBinC = app.CreateButton( "C											", 0.8, 0.15, "Custom" );
-  btnBinC.SetStyle( "green", "#4285F4", 90000, "black", 0.7, 0 );
+  btnBinC.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
   btnBinC.SetTextColor( "black" );
   btnBinC.SetOnTouch( btnBinC_OnTouch );
   layBin3.AddChild( btnBinC );
   
   app.AddLayout( layBin );
   // Seite Settings 
+  //Dezimal zu binär
+  layDez = app.CreateLayout( "linear", "FillXY" );	
+  layDez.SetBackColor(col);
+
+	keys = [ 7,8,9, 4,5,6, 1,2,3, 0,"C","<" ];
+	
+
+	txtSum = app.CreateText( sum, 0.8, 0.1 );
+	txtSum.SetTextSize( 42 );
+	txtSum.SetBackColor( "#ff222222" );
+	txtSum.SetMargins( 0, 0.1, 0, 0.05 );
+	layDez.AddChild( txtSum );
+	
+	txtSuk = app.CreateText( suk, 0.8, 0.1 );
+	txtSuk.SetTextSize( 42 );
+	txtSuk.SetBackColor( "#ff222222" );
+	txtSuk.SetMargins( 0, 0.1, 0, 0.05 );
+	layDez.AddChild( txtSuk );
+	
+
+	lay1st = app.CreateLayout( "linear", "Horizontal" );	
+	for( i=0; i<3; i++ ) AddButton( lay1st, keys[i] );
+	layDez.AddChild( lay1st );
+	
+
+	lay2nd = app.CreateLayout( "linear", "Horizontal" );	
+	for( i=3; i<6; i++ ) AddButton( lay2nd, keys[i] );
+	layDez.AddChild( lay2nd );
+	
+
+	lay3rd = app.CreateLayout( "linear", "Horizontal" );	
+	for( i=6; i<9; i++ ) AddButton( lay3rd, keys[i] );
+	layDez.AddChild( lay3rd );
+	
+
+	lay4th = app.CreateLayout( "Linear", "Horizontal" );
+	for( i=9; i<12; i++ ) AddButton(lay4th,keys[i] );
+	
+	layDez.AddChild( lay4th );
+
+
+	
+
+	lay5th = app.CreateLayout( "linear", "Horizontal" );	
+	AddButton( lay5th, "=" );
+	layDez.AddChild( lay5th );
+
+	layDez.SetVisibility("Hide");
+	app.AddLayout( layDez );
+
   
   //Layout Settings All
 	laySet = app.CreateLayout( "Linear", "FillXY" );
@@ -285,9 +354,11 @@ function OnStart()
 	txtSet.SetTextSize( 30 );
 	txtSet.SetTextColor( "black" );
 	//buttons layout Settings
-	btnCol = app.CreateButton( "Coloroptions", 0.3, 0.06, "gray" );
+	btnCol = app.CreateButton( "Coloroptions", 0.3, 0.06, "custom" );
+	btnCol.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnCol.SetOnTouch( btnCol_OnTouch );
-	btnSet = app.CreateButton( "Back", 0.3, 0.06, "gray" );
+	btnSet = app.CreateButton( "Back", 0.3, 0.06, "custom" );
+	btnSet.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnSet.SetOnTouch( btnSet_OnTouch );
 	laySet.AddChild( txtSet );
 	app.AddLayout( laySet );
@@ -312,15 +383,20 @@ function OnStart()
 	imgCol = app.CreateImage( null, 1, 0.01 );
 	layCol.AddChild( txtCol );
 	layCol.AddChild( imgCol );
-	btnColg = app.CreateButton( "Green", 0.3, 0.06, "gray" );
+	btnColg = app.CreateButton( "Green", 0.3, 0.06, "custom" );
+	btnColg.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnColg.SetOnTouch( btnColg_OnTouch );
-	btnColw = app.CreateButton( "White", 0.3, 0.06, "gray" );
+	btnColw = app.CreateButton( "White", 0.3, 0.06, "custom" );
+	btnColw.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnColw.SetOnTouch( btnColw_OnTouch );
-	btnColr = app.CreateButton( "Red", 0.3, 0.06, "gray" );
+	btnColr = app.CreateButton( "Red", 0.3, 0.06, "custom" );
+	btnColr.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnColr.SetOnTouch( btnColr_OnTouch );
-	btnColb = app.CreateButton( "Blue", 0.3, 0.06, "gray" );
+	btnColb = app.CreateButton( "Blue", 0.3, 0.06, "custom" );
+	btnColb.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnColb.SetOnTouch( btnColb_OnTouch );
-	btnColBack = app.CreateButton( "Back", 0.3, 0.06, "gray" );
+	btnColBack = app.CreateButton( "Back", 0.3, 0.06, "custom" );
+	btnColBack.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6 );
 	btnColBack.SetOnTouch( btnColBack_OnTouch );
 	layCol2 = app.CreateLayout( "Linear", "VCenter, FillXY" );
 	layCol2.SetBackColor( col );
@@ -338,7 +414,7 @@ function OnStart()
   
   DrawPicture();
   
-  //app.EnableBackKey( false );
+  app.EnableBackKey( false );
   
   app.SetScreenMode( "game" );
 }
@@ -400,7 +476,8 @@ function btnVrl1_OnTouch()
 	layBin.SetVisibility( "Show" );
 	layVrl1.SetVisibility( "Hide" );
 }
-
+function btnVrl2_OnTouch()
+{layDez.SetVisibility("Show")}
 function btnVrl3_OnTouch()
 {
 	layCalc1.SetVisibility( "Show" );
@@ -577,7 +654,8 @@ function btnBin1_OnTouch()
 }
 
 function btnBinClc_OnTouch()
-{
+{ check = ""
+   x= 1
 	check+=1;
 	check-=1;
 	
@@ -640,8 +718,66 @@ function btnExt_OnTouch()
 function YN_OnTouch( result )
 {
 	if ( result=="Yes" ) app.Exit();
+	else app.SetScreenMode( "game" );
 }
+function AddButton( lay, name )
+{
+	if( name=="=" ) w = 0.8; else w=0.2;
+	btn = app.CreateButton( name, w, 0.1, "custom" );
+	btn.SetStyle( stl1, stl2, stl3, stl4, stl5, stl6);
+	btn.SetOnTouch( btns_OnTouch );
+	lay.AddChild( btn );
+}
+function btns_OnTouch()
+{
+	app.Vibrate( "0,100" );
+	
+	//Get button text.
+	btn = app.GetLastButton();
+	var txt = btn.GetText();
+	
+	//Handle equals button.
+	if( txt=="=" ) CalcResult();
+	
+	else if( txt=="<") layDez.SetVisibility("Hide")
+	
+	//Handle clear button.
+	else if( txt=="C" ) sum= "",check = "",suk="",check2="",y=1,	txtSuk.SetText(suk);
 
+
+	//Handle other buttons.
+	else sum += txt;
+	
+	//Update display.
+	txtSum.SetText( sum )
+	
+	//txtSuk.SetText( check);
+}
+function CalcResult()
+{check = "",suk="",check2="",y=1,	txtSuk.SetText(suk);
+	
+	check2 = sum
+	while(check2>=1) 
+	{ 
+	check += check2 % 2
+	x = check2 % 2
+	  check2 =(check2 -1* x )/2
+	  
+	  
+
+
+   }
+   
+   
+   
+	while (y< check.length+1){
+	
+      suk += ((check % Math.pow(10,y))-(check % Math.pow(10,y-1)))/ (Math.pow(10,y-1))
+   txtSuk.SetText( suk)
+   y++
+    }
+    txtSuk.SetText( suk);
+}
 
 function btnColg_OnTouch()
 {
